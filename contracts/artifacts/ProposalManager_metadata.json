@@ -1,0 +1,852 @@
+{
+	"compiler": {
+		"version": "0.8.4+commit.c7e474f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "EthDeposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "EthTransfered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "lifespan",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "ProposalCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "ProposalExecuted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "ProposalRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					}
+				],
+				"name": "VoteCast",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "check_balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "check_members",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint8",
+						"name": "lifespan",
+						"type": "uint8"
+					}
+				],
+				"name": "create_governance_proposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint8",
+						"name": "lifespan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address[]",
+						"name": "targets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "adding",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8[]",
+						"name": "d_ids",
+						"type": "uint8[]"
+					}
+				],
+				"name": "create_management_proposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint8",
+						"name": "lifespan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "old_d_id",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "new_d_id",
+						"type": "uint8"
+					}
+				],
+				"name": "create_move_proposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint8",
+						"name": "lifespan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address[]",
+						"name": "targets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "datas",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "create_transaction_proposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "get_proposal",
+				"outputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "bytes",
+										"name": "name",
+										"type": "bytes"
+									},
+									{
+										"internalType": "uint8",
+										"name": "lifespan",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "id",
+										"type": "uint16"
+									},
+									{
+										"internalType": "uint256",
+										"name": "timestamp",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "votes",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address[]",
+										"name": "voters",
+										"type": "address[]"
+									}
+								],
+								"internalType": "struct ProposalManager.PBase",
+								"name": "base",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address[]",
+								"name": "targets",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bytes[]",
+								"name": "datas",
+								"type": "bytes[]"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "values",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct ProposalManager.MultiTransactionProposal",
+						"name": "",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "name",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint8",
+								"name": "lifespan",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "id",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votes",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address[]",
+								"name": "voters",
+								"type": "address[]"
+							}
+						],
+						"internalType": "struct ProposalManager.PBase",
+						"name": "",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "bytes",
+										"name": "name",
+										"type": "bytes"
+									},
+									{
+										"internalType": "uint8",
+										"name": "lifespan",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "id",
+										"type": "uint16"
+									},
+									{
+										"internalType": "uint256",
+										"name": "timestamp",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "votes",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address[]",
+										"name": "voters",
+										"type": "address[]"
+									}
+								],
+								"internalType": "struct ProposalManager.PBase",
+								"name": "base",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address[]",
+								"name": "targets",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "adding",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint8[]",
+								"name": "department_ids",
+								"type": "uint8[]"
+							}
+						],
+						"internalType": "struct ProposalManager.ManagementProposal",
+						"name": "",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "bytes",
+										"name": "name",
+										"type": "bytes"
+									},
+									{
+										"internalType": "uint8",
+										"name": "lifespan",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "id",
+										"type": "uint16"
+									},
+									{
+										"internalType": "uint256",
+										"name": "timestamp",
+										"type": "uint256"
+									},
+									{
+										"internalType": "uint256",
+										"name": "votes",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address[]",
+										"name": "voters",
+										"type": "address[]"
+									}
+								],
+								"internalType": "struct ProposalManager.PBase",
+								"name": "base",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "uint8",
+								"name": "old_department_id",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "new_department_id",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct ProposalManager.MoveProposal",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "list",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address",
+						"name": "item",
+						"type": "address"
+					}
+				],
+				"name": "not_contains",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155BatchReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "remove_proposal",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "id",
+						"type": "uint16"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"author": "ElevateDAO: Research and Development",
+			"kind": "dev",
+			"methods": {
+				"create_management_proposal(bytes,uint8,address[],bool,uint8[])": {
+					"params": {
+						"adding": "Determines whether the targets are being added or removed from the DAO. False is removal.",
+						"d_ids": "The departments which the targets are going to be added to",
+						"targets": "The people or contracts to either add or remove from the DAO"
+					}
+				},
+				"create_move_proposal(bytes,uint8,address,uint8,uint8)": {
+					"params": {
+						"new_d_id": "The member's new department",
+						"old_d_id": "The member's former department",
+						"target": "The DAO member to move"
+					}
+				},
+				"create_transaction_proposal(bytes,uint8,address[],bytes[],uint256[])": {
+					"params": {
+						"datas": "The data for the different transactions",
+						"targets": "The addresses to target in the transactions",
+						"values": "How much eth to send in each transaction"
+					}
+				},
+				"not_contains(address[],address)": {
+					"details": "This function is private and may not be used elsewhere"
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				},
+				"vote(uint16)": {
+					"params": {
+						"id": "The id to search for"
+					}
+				}
+			},
+			"title": "Account for ETH Management",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"ProposalCreated(bytes,uint16,uint8,uint256)": {
+					"notice": "Events"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"check_balance()": {
+					"notice": "Get contract balance."
+				},
+				"check_members()": {
+					"notice": "See current members of the DAO"
+				},
+				"create_governance_proposal(bytes,uint8)": {
+					"notice": "Creates a simple governance proposal, these are used to decide the direction of the DAO and what projects and research we take on."
+				},
+				"create_management_proposal(bytes,uint8,address[],bool,uint8[])": {
+					"notice": "Create a management proposal"
+				},
+				"create_move_proposal(bytes,uint8,address,uint8,uint8)": {
+					"notice": "Create a move proposal"
+				},
+				"create_transaction_proposal(bytes,uint8,address[],bytes[],uint256[])": {
+					"notice": "Create a transaction proposal"
+				},
+				"deposit()": {
+					"notice": "Function to deposit ETH into the contract"
+				},
+				"get_proposal(uint16)": {
+					"notice": "Return a proposal from the given id"
+				},
+				"not_contains(address[],address)": {
+					"notice": "A simple function to ensure a list does not contain an item"
+				},
+				"remove_proposal(uint16)": {
+					"notice": "Removes any proposal that has expired and exceeded its given lifespan based on id"
+				},
+				"vote(uint16)": {
+					"notice": "A function to vote on proposals, finds proposals based on their id"
+				}
+			},
+			"notice": "The proposal manager for voting and retrieving information about proposals",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProposalManager.sol": "ProposalManager"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
+			"keccak256": "0x7c0ea2d284bad1aa002165ba4c5eac30070be8e56b19dba1ac7c8f2c8bd4832c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://46cd1e78707bb21fc6255c1cc9356537cc767e74f112553ea9305938a325bacb",
+				"dweb:/ipfs/QmcG9KekAb77Bh5S62w8SJ4N8qhsmx8ewWF5cWoxC9DEuN"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol": {
+			"keccak256": "0x2ccdc162657b677334eb08a60bb50a0dd74b22eff7150abb06487f58dbebd5e5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fff47f23d2b9cfce4660566d3e5fa355959a6f3ba8c8394271addd9845a07d58",
+				"dweb:/ipfs/QmU6vHnARdZscV47wHaPRnzS3pqSKG3YoLbhMUbyAHxLda"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol": {
+			"keccak256": "0xfb1161632a10d0bd366c80db583246fa490183b45ec4f59acb43b97d1a7437b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c1b773c4f83eed25714e54f3ac4d7d5c43f70ba9adf7a0039870395280d57ab0",
+				"dweb:/ipfs/QmeMWUj4afupT66btFmbXPWePdv1NAVbJuAGwb3YmDGjH5"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x069b2631bb5b5193a58ccf7a06266c7361bd2c20095667af4402817605627f45",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a4c96fafff76deda5697c3c5c98cade6e6e1b178254544c106bf360c079ce4e",
+				"dweb:/ipfs/QmXmxubE3jnatFgZuN8ay1VV6hZ8WRmhvUjNpeVjki15HX"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0x5718c5df9bd67ac68a796961df938821bb5dc0cd4c6118d77e9145afb187409b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d10e1d9b26042424789246603906ad06143bf9a928f4e99de8b5e3bdc662f549",
+				"dweb:/ipfs/Qmejonoaj5MLekPus229rJQHcC6E9dz2xorjHJR84fMfmn"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0xa28007762d9da9db878dd421960c8cb9a10471f47ab5c1b3309bfe48e9e79ff4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://796ab6e88af7bf0e78def0f059310c903af6a312b565344e0ff524a0f26e81c6",
+				"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx"
+			]
+		},
+		"@openzeppelin/contracts/utils/structs/EnumerableSet.sol": {
+			"keccak256": "0x4878ef6c288f4cef3c2a288d32cc548c648831cc55503ad3d9a581ed3b93aad9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ff1bdcc04ffc6b0a39e76ca4d8c09fb36927c2355008294db28096c1bd9ef544",
+				"dweb:/ipfs/QmSNmMUxcuQ9i6U1PVcd14gTCEYmFgkjPg3anzDckGhVRS"
+			]
+		},
+		"contracts/Account.sol": {
+			"keccak256": "0x635039c868b4f12e468ecbc00732a3064ff04c58c8d8cbb7cfac4735a66fb2cd",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://f0307cdea00d68e8ee9f4e906f8a01cbcdc1f3540680cb6991e6fe98bd1fd6f4",
+				"dweb:/ipfs/QmWvYcvVAwkv3pnqpRDtqMicuVN7ctmNwMeh55vHF21DfK"
+			]
+		},
+		"contracts/ProposalManager.sol": {
+			"keccak256": "0xe3e58ea15865dc4decd44847bf6f952d1c7a41202c74d1fafdbca27b5c1ed0ae",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://f2738ed6198391e5bfb750bf0b0419c8a3bcb4bf3d9011bc63fd74798107955b",
+				"dweb:/ipfs/QmSeEosyc2wu7BttN3UxjjM9K3VuFsYQMeyew3w5hPnyZ7"
+			]
+		}
+	},
+	"version": 1
+}
