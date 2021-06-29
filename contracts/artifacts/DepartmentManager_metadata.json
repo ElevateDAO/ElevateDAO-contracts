@@ -789,6 +789,30 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "d_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "m",
+						"type": "address"
+					}
+				],
+				"name": "is_department_member",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -1135,11 +1159,11 @@
 			]
 		},
 		"contracts/DepartmentManager.sol": {
-			"keccak256": "0x4e44e1b55839a22dc15321f6456dffd5d88a487b3f6c312ba636eec0dbfbfa24",
+			"keccak256": "0xe44499e53c907602fb81e38d4b8d25ace9a60a4e40adfa3b9d751ef577ec858a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://03afd9bdc00ae5aa18fe8fd00e234778a800d2a371de731093f16e844be497a7",
-				"dweb:/ipfs/QmSU2886h5nwjoP2dyJ6A1fFjz1g1iF4mHwkf1m8FzycPu"
+				"bzz-raw://daac6daef0f4096b1e4367c375532517473a5462e7c05cee55dd86ee0a3aeab8",
+				"dweb:/ipfs/QmcQRadETrJqNUyeV4osH4Grod7EDWxFY9sc2WBKzcdiTW"
 			]
 		},
 		"contracts/ProposalManager.sol": {

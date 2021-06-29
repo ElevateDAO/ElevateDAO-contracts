@@ -146,4 +146,11 @@ contract DepartmentManager is Account, ProposalManager {
     function get_department_proposal(uint d_id, uint16 p_id) view external returns (MultiTransactionProposal memory, DistributionProposal memory) {
         return _departments[d_id].spm.get_proposal(p_id);
     }
+    
+    function is_department_member(uint d_id, address m) view external returns (bool) {
+        if (_departments[d_id].members.contains(m)) {
+            return true;
+        }
+        return false;
+    }
 }
