@@ -17,6 +17,10 @@ contract SubManager is Account {
         _;
     }
     
+    constructor() {
+        _owner = msg.sender;
+    }
+    
     /// @notice Distributes funds to all members of the department that owns this contract
     function distribute(address[] memory members, uint total_amount) external onlyOwner {
         uint amount_to_each = total_amount/ members.length;

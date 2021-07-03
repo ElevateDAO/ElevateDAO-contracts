@@ -44,6 +44,7 @@ contract DepartmentManager is Account, ProposalManager {
         
         for (uint i = 0; i < 4; i++) {
             _departments[i].sm = new SubManager();
+            _departments[i].spm.current_id++;
         }
         
         members.add(msg.sender);
@@ -58,7 +59,11 @@ contract DepartmentManager is Account, ProposalManager {
             MultiTransactionProposal storage temp = transactions[id];
             passed_proposals[id] = true;
             for (uint i = 0; i < temp.targets.length; i++) {
-                _transact_with_value(temp.targets[i], temp.datas[i], temp.values[i]);
+                if (temp.datas[i].length == 0) {
+                    _transfer(temp.values[i], payable(temp.targets[i]));
+                } else {
+                    _transact_with_value(temp.targets[i], temp.datas[i], temp.values[i]);
+                }
             }
             emit ProposalExecuted(temp.base.name, temp.base.id);
         } else if (management[id].base.id != 0 && management[id].base.votes > members.length()/2) {
@@ -66,6 +71,7 @@ contract DepartmentManager is Account, ProposalManager {
             passed_proposals[id] = true;
             if (temp.adding) {
                 for (uint i = 0; i < temp.targets.length; i++) {
+                    members.add(temp.targets[i]);
                     _departments[temp.department_ids[i]].members.add(temp.targets[i]);
                 }
             } else {
@@ -97,14 +103,18 @@ contract DepartmentManager is Account, ProposalManager {
             MultiTransactionProposal storage temp = _departments[d_id].spm.transactions[p_id];
             passed_department_proposals[d_id][p_id] = true;
             for (uint i = 0; i < temp.targets.length; i++) {
-                _transact_with_value(temp.targets[i], temp.datas[i], temp.values[i]);
+                if (temp.datas[i].length == 0) {
+                    _transfer(temp.values[i], payable(temp.targets[i]));
+                } else {
+                    _transact_with_value(temp.targets[i], temp.datas[i], temp.values[i]);
+                }
             }
             emit ProposalExecuted(temp.base.name, temp.base.id);
         } else if (_departments[d_id].spm.distributions[p_id].base.id != 0 && 
         _departments[d_id].spm.distributions[p_id].base.votes > _departments[d_id].members.length()/2) {
             DistributionProposal storage temp = _departments[d_id].spm.distributions[p_id];
             passed_department_proposals[d_id][p_id] = true;
-            address[] memory m;
+            address[] memory m = new address[](_departments[d_id].members.length());
             for (uint i = 0; i < _departments[d_id].members.length(); i++) {
                 m[i] = _departments[d_id].members.at(i);
             }
@@ -134,12 +144,12 @@ contract DepartmentManager is Account, ProposalManager {
     }
     
     /// @notice Get information about a particular department
-    function get_department_info(uint d_id) view external returns (bytes32, address[] memory) {
-        address[] memory m;
+    function get_department_info(uint d_id) view external returns (bytes32, address, address[] memory) {
+        address[] memory m = new address[](_departments[d_id].members.length());
         for (uint i = 0; i < _departments[d_id].members.length(); i++) {
             m[i] = _departments[d_id].members.at(i);
         }
-        return (_departments[d_id].name, m);
+        return (_departments[d_id].name, address(_departments[d_id].sm), m);
     }
     
     /// Get a department-contained proposal

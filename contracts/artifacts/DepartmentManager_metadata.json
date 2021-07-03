@@ -423,6 +423,11 @@
 						"type": "bytes32"
 					},
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
 						"internalType": "address[]",
 						"name": "",
 						"type": "address[]"
@@ -1159,11 +1164,11 @@
 			]
 		},
 		"contracts/DepartmentManager.sol": {
-			"keccak256": "0xe44499e53c907602fb81e38d4b8d25ace9a60a4e40adfa3b9d751ef577ec858a",
+			"keccak256": "0xb04a02a06e2f69dd37e0869eaf5443e719994975ca2152b2e6b383be8c421661",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://daac6daef0f4096b1e4367c375532517473a5462e7c05cee55dd86ee0a3aeab8",
-				"dweb:/ipfs/QmcQRadETrJqNUyeV4osH4Grod7EDWxFY9sc2WBKzcdiTW"
+				"bzz-raw://fb9997ad8c0bbe8d226bd8e8b1b1d2e4214311b4e103fe57fc262d9547a152e1",
+				"dweb:/ipfs/QmT4BxWbYR6WbyfHycZzrm9gT5oLTp7sZnMfAYihnQkEg6"
 			]
 		},
 		"contracts/ProposalManager.sol": {
@@ -1175,11 +1180,11 @@
 			]
 		},
 		"contracts/SubManager.sol": {
-			"keccak256": "0xaf2369b79d4fc82c83b144ea10a2ea5472869f7ce41596dd012d4f2e5c50250e",
+			"keccak256": "0xf94cb0413ec10ab60f5e74cbdbf962fd4e640574a57cec4578c129dd280162e3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://260cc61eb0bf5f9d30f59d283d842e71829297d4a352b10275eca947fc828eca",
-				"dweb:/ipfs/QmT15oBwwsHNmK6Akukbd7Y1Gw8qE33J2YVC4m4wdmWHCH"
+				"bzz-raw://165397c648fb57527e650661e6b182097cabf9f70acf54c330d7d0dddd67f4c3",
+				"dweb:/ipfs/Qmb68wniYwSjc2GSWg3Fn5NuFFzp9syKwH8EdP4GRddxKk"
 			]
 		},
 		"contracts/SubPM.sol": {

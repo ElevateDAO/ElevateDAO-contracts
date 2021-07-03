@@ -166,7 +166,7 @@
 			}
 		],
 		"devdoc": {
-			"author": "Omateolashi Asenime",
+			"author": "ElevateDAO: Research and Development",
 			"details": "All variables and functions are marked as internal",
 			"kind": "dev",
 			"methods": {
@@ -256,11 +256,11 @@
 			]
 		},
 		"contracts/Account.sol": {
-			"keccak256": "0x7120ef25028ce5a075bcb5b2f554ec9b019d65fb9cbe59bdbf6e2df09ed94352",
+			"keccak256": "0x635039c868b4f12e468ecbc00732a3064ff04c58c8d8cbb7cfac4735a66fb2cd",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5ee7d29a5b6289a9b1050d373a8ddd443bbfb9ab8cdc946143ee052a1d272bc2",
-				"dweb:/ipfs/QmaqKzAqxAvNrS9dbWqkGpx5WUtyDmBkstE9F9vwb9J3mv"
+				"bzz-raw://f0307cdea00d68e8ee9f4e906f8a01cbcdc1f3540680cb6991e6fe98bd1fd6f4",
+				"dweb:/ipfs/QmWvYcvVAwkv3pnqpRDtqMicuVN7ctmNwMeh55vHF21DfK"
 			]
 		}
 	},
